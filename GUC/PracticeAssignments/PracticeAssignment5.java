@@ -4,6 +4,7 @@ public class PracticeAssignment5 {
     //Exercise 5 - 1:
     public static void reverseQ(ArrayQueue Q){
         ArrayStack temp = new ArrayStack(Q.size());
+
         while(!Q.isEmpty()){
             temp.push((int) Q.dequeue());
         }
@@ -17,6 +18,7 @@ public class PracticeAssignment5 {
     public static ArrayQueue mirror(ArrayQueue Q){
         ArrayQueue reverse = new ArrayQueue(Q.size());
         int size = Q.size();
+
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size -1; j++){
                 Q.enqueue(Q.dequeue());
@@ -47,6 +49,7 @@ public class PracticeAssignment5 {
 
         public Object dequeue(){
             ObjStack temp = new ObjStack(length);
+
             while(!Queue.isEmpty()){
                 temp.push(Queue.pop());
             }
@@ -56,6 +59,7 @@ public class PracticeAssignment5 {
             while(!temp.isEmpty()){
                 Queue.push(temp.pop());
             }
+            
             length--;
             return res;
         }

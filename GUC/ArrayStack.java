@@ -1,5 +1,3 @@
-package GUC;
-
 public class ArrayStack {
     private int[] stackArray;
     private int top;

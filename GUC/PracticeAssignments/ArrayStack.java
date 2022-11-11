@@ -1,4 +1,4 @@
-package GUC.PracticeAssignments;
+package PracticeAssignments;
 
 public class ArrayStack {
     private int[] stackArray;

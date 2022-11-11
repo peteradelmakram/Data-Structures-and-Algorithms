@@ -1,5 +1,3 @@
-package GUC;
-
 class LabOne {
     public static void shakeSort(int[] arr){
         for(int i = 0; i < (arr.length)/2 ; i++){
@@ -77,8 +75,6 @@ class LabOne {
 
 
     public static void main(String[] args) {
-        int[] arr = {9,8,7,7,6,5,4,4,7};
-
-        countingSort(arr);
+        
     }    
 }

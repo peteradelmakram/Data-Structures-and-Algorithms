@@ -1,4 +1,4 @@
-package GUC;
+package PracticeAssignments;
 
 public class PracticeAssignmentOne {
     public static void main(String[] args) {

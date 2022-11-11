@@ -49,6 +49,17 @@ public class ArrayQueue {
         return nItems;
     }
 
+    public boolean isFull(){
+        return nItems == maxSize;
+    }
+    
+    public void printQueue(){
+        for(int i = front; i <= rear; i++){
+            System.out.print(ArrayQueue[i] + " ");
+        }
+        System.out.println();
+    }
+
     public static String[] generateBinary(int n){
         String[] res = new String[n];
         ArrayQueue queue = new ArrayQueue(n);

@@ -1,5 +1,3 @@
-package GUC;
-
 public class ObjStack {
     private Object[] stackArray;
     private int top;
