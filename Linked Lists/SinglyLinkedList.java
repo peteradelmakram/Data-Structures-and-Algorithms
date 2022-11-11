@@ -151,16 +151,10 @@ public class SinglyLinkedList {
         if(head == null){
             return null;
         }
-        if(n <= 0){
-            throw new IllegalArgumentException("Invalid Value" + n);
-        }
         ListNode mainPtr = head;
         ListNode refPtr = head;
         int count = 0;
         while (count < n){
-            if(refPtr == null){
-                throw new IllegalArgumentException(n + "is greater than number of nodes in list.");
-            }
             refPtr = refPtr.next;
             count++;
         }
