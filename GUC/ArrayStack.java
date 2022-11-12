@@ -21,7 +21,7 @@ public class ArrayStack {
     public int top(){
         return stackArray[top];
     }
-
+    
     public boolean isEmpty(){
         return top == -1;
     }
