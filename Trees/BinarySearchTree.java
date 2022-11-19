@@ -37,6 +37,8 @@ public class BinarySearchTree {
         System.out.print(root.data + " ");
         inOrder(root.right);
     }
+
+
     //Primary Methods:
     public static Node searchBST(Node root, int key){
         if(root == null || root.data == key) return root;
@@ -71,7 +73,7 @@ public class BinarySearchTree {
 
     public static Node deleteBST(Node root, int data){
         // there are 3 cases : node to be deleted is a leaf, node to be deleted has one child, or node to be deleted has two children.
-        if(root == null) return root; // Base case.
+        if(root == null) return root;
         //Traversing down the BST till we find the node that we want to delete.
         if(data < root.data){
             root.left = deleteBST(root.left, data);
@@ -125,7 +127,6 @@ public class BinarySearchTree {
         insertBST(root,6);
         insertBST(root, 4);
         insertBST(root, 9);
-
         inOrder(root);
         deleteBST(root, 4);
         System.out.println();

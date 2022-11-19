@@ -1,13 +1,13 @@
 package Trees;
 
 public class AVLTree{
-    public AVLNode root;
+    public Node root;
 
-    public class AVLNode{
+    public class Node{
         int val, height;
-        AVLNode left, right;
+        Node left, right;
 
-        public AVLNode(int val){
+        public Node(int val){
             this.val = val;
             height = 1;
         }
@@ -18,44 +18,38 @@ public class AVLTree{
         return (a > b) ? a : b;
     }
 
-    static int height(AVLNode n){
+    static int height(Node n){
         if(n == null) return 0;
         else return n.height;
     }
 
-    public AVLNode rightRotate(AVLNode y){
-        AVLNode x = y.left;
-        AVLNode T2 = x.right;
-
+    public Node rightRotate(Node y){
+        Node x = y.left;
+        Node T2 = x.right;
         x.right = y;
         y.left = T2;
-
         y.height = max(height(y.left), height(y.right)) + 1;
         x.height = max(height(x.left), height(x.right)) + 1;
-
         return x;
     }
 
-    public AVLNode leftRotate(AVLNode x){
-        AVLNode y = x.right;
-        AVLNode T2 = y.left;
-
+    public Node leftRotate(Node x){
+        Node y = x.right;
+        Node T2 = y.left;
         y.left = x;
         x.right = T2;
-
         x.height = max(height(x.left), height(x.right)) + 1;
         y.height = max(height(y.left), height(y.right)) + 1;
-
         return y;
     }
 
-    public int getBalance(AVLNode node){
+    public int getBalance(Node node){
         if(root == null) return 0;
         return height(node.left) - height(node.right);
     }
 
-    public AVLNode insert(AVLNode root, int key){
-        if(root == null) return new AVLNode(key);
+    public Node insert(Node root, int key){
+        if(root == null) return new Node(key);
         if(key < root.val) root.left = insert(root.left, key);
         else if(key > root.val) root.right = insert(root.right, key);
         else return root;
@@ -82,7 +76,7 @@ public class AVLTree{
         return root;
     }
 
-    public int getMinNode(AVLNode root){
+    public int getMinNode(Node root){
         int minV = root.val;
         while(root.left != null){
             minV = root.left.val;
@@ -92,14 +86,14 @@ public class AVLTree{
         return minV;
     }
 
-    public AVLNode deleteNode(AVLNode root, int key){
+    public Node deleteNode(Node root, int key){
         if(root == null) return root;
 
         if(key < root.val) root.left = deleteNode(root.left, key);
         if(key > root.val) root.right = deleteNode(root.right, key);
         else{
             if((root.right == null) || (root.left == null)){
-                AVLNode temp = null;
+                Node temp = null;
 
                 if(temp == root.left){
                     temp = root.right;
