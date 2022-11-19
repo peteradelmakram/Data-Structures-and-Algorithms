@@ -1,6 +1,4 @@
 import Queues.ArrayQueue;
-import Queues.Queue;
-import Stacks.Stack;
 public class Midterms {
     
     public static void reverseChunk(ArrayStack x, int c){

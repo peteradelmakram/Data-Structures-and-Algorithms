@@ -1,14 +1,13 @@
 package Trees;
-
 public class BinarySearchTree {
     private Node root;
 
     public static class Node{
-        public Object data;
+        public int data;
         public Node left;
         public Node right;
 
-        public Node(Object o){
+        public Node(int o){
             data = o;
         }
     }
@@ -17,43 +16,7 @@ public class BinarySearchTree {
         root = null;
     }
 
-    public static Node search(Node root, int key){
-        if(root == null || (Integer) root.data == key){
-            return root;
-        }
-        if(key < (Integer) root.data){
-            return search(root.left, key);
-        }
-        else{
-            return search(root.right, key);
-        }
-    }
-
-    public static Node searchIteratively(Node root, int key){
-        if(root == null) return root;
-        else{
-            while((Integer) root.data != key){
-                if(key < (Integer) root.data){
-                    root = root.left;
-                }else{
-                    root = root.right;
-                }
-                if(root == null) return null;
-            }
-        }
-        return root;
-    }
-
-    public static Node insert(Node root, int val){
-        if(root == null){
-            root = new Node(val);
-            return root;
-        }
-        if(val < (Integer) root.data) root.left = insert(root.left, val);
-        else root.right = insert(root.right, val);
-        return root;
-    }
-
+    //Traversals for Printing: 
     public static void preOrder(Node root){
         if(root == null) return;
         System.out.print(root.data + " ");
@@ -61,35 +24,92 @@ public class BinarySearchTree {
         preOrder(root.right);
     }
 
-    static void inOrder(Node root){
-        if(root == null) return;
-        inOrder(root.left);
-        System.out.print(root.data + " ");
-        inOrder(root.right);
-    }
-
-    static void postOrder(Node root){
+    public static void postOrder(Node root){
         if(root == null) return;
         postOrder(root.left);
         postOrder(root.right);
         System.out.print(root.data + " ");
     }
 
-    static String inOrderStr(Node root){
-        if(root == null) return " ";
-        return inOrderStr(root.left) +root.data + inOrderStr(root.right); 
+    public static void inOrder(Node root){
+        if(root == null) return;
+        inOrder(root.left);
+        System.out.print(root.data + " ");
+        inOrder(root.right);
+    }
+    //Primary Methods:
+    public static Node searchBST(Node root, int key){
+        if(root == null || root.data == key) return root;
+        else if(root.data < key) return searchBST(root.right, key);
+        else return searchBST(root.left, key);
+    }
+
+    public static Node searchBSTIteratively(Node root, int key){
+        if(root == null) return root;
+        else{
+            while(root.data != key){
+                if(key < root.data) root = root.left;
+                else root = root.right;
+
+                if(root == null) return null;
+            }
+        }
+        return root;
+    }
+
+    public static Node insertBST(Node root, int val){
+        if(root == null){
+            root = new Node(val);
+            return root;
+        }
+        if(val < root.data) root.left = insertBST(root.left, val);
+        else {
+            root.right = insertBST(root.right, val);
+        }
+        return root;
+    }
+
+    public static Node deleteBST(Node root, int data){
+        // there are 3 cases : node to be deleted is a leaf, node to be deleted has one child, or node to be deleted has two children.
+        if(root == null) return root; // Base case.
+        //Traversing down the BST till we find the node that we want to delete.
+        if(data < root.data){
+            root.left = deleteBST(root.left, data);
+        }else if(data > root.data){
+            root.right = deleteBST(root.right, data);
+        }else{
+            //Case 1 & 2: No children or one child.
+            if(root.left == null) return root.right;
+            else if(root.right == null) return root.left;
+            //Case 3 : Two children (Get inorder successor (smallest value in right subtree)) and delete it.
+            else{
+                root.data = minVal(root.right);
+                root.right = deleteBST(root.right, root.data);
+            }
+        }
+        return root;
+    }
+
+    static int minVal(Node root){
+        int minVal = root.data;
+        while(root.left != null){
+            minVal = root.left.data;
+            root = root.left;
+        }
+
+        return minVal;
     }
 
     static boolean validBST(Node root, int min, int max){
         if(root == null){
             return true;
         }
-        if((Integer) root.data <= min|| (Integer) root.data >= max){
+        if(root.data <= min|| root.data >= max){
             return false;
         }
-        boolean left = validBST(root.left, min, (Integer) root.data);
+        boolean left = validBST(root.left, min, root.data);
         if(left){
-            boolean right = validBST(root.right, (Integer) root.data, max);
+            boolean right = validBST(root.right, root.data, max);
             return right;
         }
         return false;
@@ -97,17 +117,18 @@ public class BinarySearchTree {
     public static void main(String[] args) {
         BinarySearchTree searchTree = new BinarySearchTree();
         Node root = searchTree.root;
-        root = insert(null, 5);
-        insert(root, 1);
-        insert(root, 10);
-        insert(root, 3);
-        insert(root, 7);
-        insert(root,6);
-        insert(root, 4);
-        insert(root, 9);
+        root = insertBST(null, 5);
+        insertBST(root, 1);
+        insertBST(root, 10);
+        insertBST(root, 3);
+        insertBST(root, 7);
+        insertBST(root,6);
+        insertBST(root, 4);
+        insertBST(root, 9);
 
-        boolean res = validBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
-        System.out.print(res);
-
+        inOrder(root);
+        deleteBST(root, 4);
+        System.out.println();
+        inOrder(root);
     }
 }

@@ -13,9 +13,6 @@ public class Stack {
         public ListNode(Object data) {
             this.data = data;
         }
-
-        public ListNode() {
-        }
     }
 
     public Stack() {
