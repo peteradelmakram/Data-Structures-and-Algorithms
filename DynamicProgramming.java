@@ -61,7 +61,6 @@ public class DynamicProgramming {
 
         return DP.get(key);
     }
-    
     public static void main(String[] args) {
         System.out.print(gridTraveler(18,18));
     }

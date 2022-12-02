@@ -291,22 +291,15 @@ public class SinglyLinkedList {
     }
 
     public static void main(String[] args) {
-        ListNode head = new ListNode(1);
-        ListNode first = new ListNode(2);
-        ListNode second = new ListNode(3);
-        ListNode head2 = new ListNode(4);
-        ListNode first2 = new ListNode(7);
-        ListNode second2 = new ListNode(2);
-        head.next = first;
-        first.next = second;
-        head2.next = first2;
-        first2.next = second2;
-        SinglyLinkedList list1 = new SinglyLinkedList();
-        list1.head = head;
-        SinglyLinkedList list2 = new SinglyLinkedList();
-        list2.head = head2;
-        list1.display();
-        list2.display();
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.insertLast(1);
+        list.insertLast(2);
+        list.insertLast(3);
+        list.insertLast(4);
+        list.insertLast(5);
+    
+        System.out.println(list.findMiddleNode().data);
+
         // SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         // singlyLinkedList.display(head);
         // ListNode reversedNode = singlyLinkedList.reverse(head);
