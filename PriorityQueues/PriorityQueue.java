@@ -1,63 +1,45 @@
 package PriorityQueues;
-public class PriorityQueue{
+
+public class PriorityQueue {
+ 
+   private Comparable[] elements;
+   private int nItems;
+   private int maxSize;
+
+   public PriorityQueue(int size){
+      maxSize = size;
+      elements = new Comparable[maxSize];
+      nItems=0;
+   }
     
-    private int maxSize;
-    private Comparable[] priorityQueue;
-    private int nItems;
+   public void insert(Comparable item) {
+      
+      int i;
+      for (i = nItems - 1;i >= 0 && item.compareTo(elements[i]) > 0;i--)
+         elements[i + 1] = elements[i];
 
-    public PriorityQueue(int s) {
-       maxSize = s;
-       priorityQueue = new Comparable[maxSize];
-       nItems = 0; 
-    }  
-
-    public void insert(Comparable o){
-        if(nItems == 0)
-            priorityQueue[nItems++] = o;
-        else{
-            int j;
-            for(j = nItems -1; j >= 0; j--){
-                if(o.compareTo(priorityQueue[j]) < 0){
-                    priorityQueue[j+1] = priorityQueue[j];
-                }
-                else{
-                    break;
-                }
-            }
-            priorityQueue[j+1] = o;
-            nItems++;
-        }
-    }
-
-    public Comparable remove(){
-        nItems--;
-        return priorityQueue[nItems];
-    }
-
-    public boolean isFull(){
-        return nItems == maxSize;
-    }
-
-    public boolean isEmpty(){
-        return nItems == 0;
-    }
-    public static void main(String[] args) {
-        Student student1 = new Student("Ahmed", 10);
-        Student student2 = new Student("Bob", 20);
-        Student student3 = new Student("Carl", 30);
-
-        PriorityQueue Q = new PriorityQueue(3);
-        Q.insert(student3);
-        Q.insert(student1);
-        Q.insert(student2);
-
-        for(int i = 0; i < 3; i++)
-            System.out.print(Q.remove() + " ");
-    }
-
-    public int size() {
-        return nItems;
-    }
-
+      elements[i + 1] = item;
+      nItems++;
+   }
     
+   public Comparable remove() {
+      nItems--;
+      return elements[nItems];
+   }
+    
+   public boolean isEmpty() {
+      return (nItems == 0);
+   }
+    
+   public boolean isFull() {
+      return (nItems == maxSize);
+   }
+  
+   public Comparable peekMin() {
+      return elements[nItems-1];
+   }
+     
+   public int size() {
+      return nItems;
+   }
 }

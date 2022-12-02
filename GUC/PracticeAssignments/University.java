@@ -15,8 +15,8 @@ public class University implements Comparable{
         University x = (University) o;
         Integer rank = x.rank;
         if(this.rank == rank)
-            return x.name.compareTo(this.name);
-        return this.rank - rank;
+            return this.name.compareTo(x.name);
+        return rank - this.rank;
     }
 
     public String toString(){
