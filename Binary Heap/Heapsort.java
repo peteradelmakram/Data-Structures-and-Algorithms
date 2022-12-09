@@ -5,7 +5,6 @@ public class Heapsort{
         for(int i = n/2 - 1; i >= 0; i--){
             maxHeapify(arr,n, i);
         }
-
         return arr;
     }
 
@@ -14,6 +13,7 @@ public class Heapsort{
             minHeapify(arr, i);
         }
     }
+    
     //maxHeapify function O(logn)
     public static void maxHeapify(int arr[], int N, int i){
         int largest = i; 
