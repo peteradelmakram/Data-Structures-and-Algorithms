@@ -59,4 +59,5 @@ public class LinkedList {
         curr.next = null;
         return temp;
     }
+
 }

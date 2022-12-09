@@ -72,17 +72,17 @@ public class LinkList {
 	}
 	
 	public void reverseList(){
-		Link curr = head;
+		Link nxt = null;
 		Link previous = null;
-		Link next = null;
-
+		Link curr = head;
+		
 		while(curr != null){
-			next = curr.next;
+			nxt = curr.next;
 			curr.next = previous;
 			previous = curr;
-			curr = next;
+			curr = nxt;
 		}
-
+		
 		head = previous;
 	}
 
@@ -141,6 +141,9 @@ public class LinkList {
 
     	head = dummyNode.next;
 	}
+
+
+	
 
 	public class Link{
 		public Object data;
