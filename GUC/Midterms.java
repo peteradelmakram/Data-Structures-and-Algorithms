@@ -7,11 +7,17 @@ public class Midterms {
         int si = x.size();
         while(!x.isEmpty()) t1.push(x.pop());
 
-        for(int i = 0; i < si % c; i++) x.push(t1.pop());
+        for(int i = 0; i < si % c; i++){
+            x.push(t1.pop());
+        } 
 
         while(!t1.isEmpty()){
-            for(int i = 0; i < c; i++) t2.push(t1.pop());
-            while(!t2.isEmpty()) x.push(t2.pop());
+            for(int i = 0; i < c; i++){
+                t2.push(t1.pop());
+            }
+            while(!t2.isEmpty()){
+                x.push(t2.pop());
+            } 
         }
     }
 
@@ -20,9 +26,11 @@ public class Midterms {
         ArrayStack s = new ArrayStack(size/2);
 
         for(int i = 0; i < size /2; i++){
+
             for(int j = 0; j < size /2 -1; j++){
                 Q.enqueue(Q.dequeue());
             }
+
             s.push((int) Q.dequeue());
         }
 
@@ -61,7 +69,7 @@ public class Midterms {
         String result = "";
         for(int i = chars.length -1; i >= 0; i--){
             if(priority(chars[i]) > 0){
-                while(!stack.isEmpty() && priority(chars[i]) <= priority( (String) stack.top())){
+                while(!stack.isEmpty() && priority(chars[i]) <= priority((String) stack.top())){
                     result = (String) stack.pop() + result;
                 }
                 stack.push(chars[i]);
