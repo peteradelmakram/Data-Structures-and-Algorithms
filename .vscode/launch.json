@@ -3,6 +3,41 @@
   "configurations": [
     {
       "type": "java",
+      "name": "BTreeProblems",
+      "request": "launch",
+      "mainClass": "Trees.BTreeProblems",
+      "projectName": "Data Structures and Algorithms_94166a9"
+    },
+    {
+      "type": "java",
+      "name": "Matrix",
+      "request": "launch",
+      "mainClass": "Matrix.Matrix",
+      "projectName": "Data Structures and Algorithms_94166a9"
+    },
+    {
+      "type": "java",
+      "name": "Reverse",
+      "request": "launch",
+      "mainClass": "Reverse",
+      "projectName": "Data Structures and Algorithms_94166a9"
+    },
+    {
+      "type": "java",
+      "name": "Heapsort",
+      "request": "launch",
+      "mainClass": "Heapsort",
+      "projectName": "Data Structures and Algorithms_94166a9"
+    },
+    {
+      "type": "java",
+      "name": "MaxHeap",
+      "request": "launch",
+      "mainClass": "MaxHeap",
+      "projectName": "Data Structures and Algorithms_94166a9"
+    },
+    {
+      "type": "java",
       "name": "RemoveEven",
       "request": "launch",
       "mainClass": "RemoveEven",
