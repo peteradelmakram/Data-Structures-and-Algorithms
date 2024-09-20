@@ -17,6 +17,7 @@ public class BinarySearchTree {
     }
 
     //Traversals for Printing: 
+    // root -> left -> right
     public static void preOrder(Node root){
         if(root == null) return;
         System.out.print(root.data + " ");
@@ -24,6 +25,8 @@ public class BinarySearchTree {
         preOrder(root.right);
     }
 
+
+    // left -> right -> root
     public static void postOrder(Node root){
         if(root == null) return;
         postOrder(root.left);
@@ -31,6 +34,7 @@ public class BinarySearchTree {
         System.out.print(root.data + " ");
     }
 
+    // left -> root -> right
     public static void inOrder(Node root){
         if(root == null) return;
         inOrder(root.left);

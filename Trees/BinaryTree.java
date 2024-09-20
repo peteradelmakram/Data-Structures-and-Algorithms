@@ -1,6 +1,7 @@
 package Trees;
 import java.util.*;
 
+
 public class BinaryTree {
     private Node root;
 
@@ -23,6 +24,7 @@ public class BinaryTree {
     }
 
     //preOrder traversal using Recursion (Also known as Depth first value)
+    // root -> left -> right
     public static void preOrder(Node root){
         if(root == null) return;
         System.out.print(root.data + " ");
@@ -48,7 +50,7 @@ public class BinaryTree {
         }
     }
 
-    //InOrder traversal using Recursion 
+    //InOrder traversal using Recursion  left --> root --> right
     public static void inOrder(Node root){
         if(root == null) return;
         inOrder(root.left);
@@ -74,6 +76,7 @@ public class BinaryTree {
         }
     }
     //postOrder traversal using Recursion (Iterative one is too complicated and inefficient that it isn't worth studying.)
+    // left -> right -> root
     public static void postOrder(Node root){
         if(root == null) return;
         postOrder(root.left);
@@ -94,9 +97,10 @@ public class BinaryTree {
                 Q.offer(temp.right);
         }
     }
+
     //find maximum node recursively.
     public static int findMax(Node root){
-        if(root == null) return Integer.MIN_VALUE;
+        if(root == null) return -1;
         int result = (Integer) root.data;
         int left = findMax(root.left);
         int right = findMax(root.right);
@@ -105,6 +109,15 @@ public class BinaryTree {
         if(right > result)
             result = right;
         return result;
+    }
+
+    public int numOfLeaves(){
+        return numOfLeavesHelper(root);
+    }
+
+    public int numOfLeavesHelper(Node root){
+        if(root == null) return 0;
+        return 1 + numOfLeavesHelper(root.left) + numOfLeavesHelper(root.right);
     }
 
     public static void main(String[] args) {
@@ -126,8 +139,8 @@ public class BinaryTree {
         third.right = seventh; 
 
 
-        postOrder(tree.root);
-
+        System.out.println(tree.numOfLeaves());
+        preOrder(tree.root);
     }
 
 }

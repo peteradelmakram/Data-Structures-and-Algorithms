@@ -11,8 +11,7 @@ public class RemoveEven {
         int k = 0;
         for(int j = 0; j < arr.length; j++){
             if(arr[j] % 2 != 0){
-                odd[k] = arr[j];
-                k++;
+                odd[k++] = arr[j];
             }
         }
         return odd;

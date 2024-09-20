@@ -1,0 +1,101 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "RemoveEven",
+      "request": "launch",
+      "mainClass": "RemoveEven",
+      "projectName": "Data Structures and Algorithms_5dbb3c7b"
+    },
+    {
+      "type": "java",
+      "name": "LinearSearch",
+      "request": "launch",
+      "mainClass": "Searching.LinearSearch",
+      "projectName": "Data Structures and Algorithms_5dbb3c7b"
+    },
+    {
+      "type": "java",
+      "name": "Launch MergeSort",
+      "request": "launch",
+      "mainClass": "MergeSort",
+      "projectName": "Data Structures and Algorithms_5dbb3c7b"
+    },
+    {
+      "type": "java",
+      "name": "Launch Matrix",
+      "request": "launch",
+      "mainClass": "Matrix.Matrix",
+      "projectName": "Data Structures and Algorithms_5dbb3c7b"
+    },
+    {
+      "type": "java",
+      "name": "Launch Solution",
+      "request": "launch",
+      "mainClass": "Solution",
+      "projectName": "Data Structures and Algorithms_5dbb3c7b"
+    },
+    {
+      "type": "java",
+      "name": "Launch InsertionSort",
+      "request": "launch",
+      "mainClass": "InsertionSort",
+      "projectName": "Data Structures and Algorithms_5dbb3c7b"
+    },
+    {
+      "type": "java",
+      "name": "Launch SessionA",
+      "request": "launch",
+      "mainClass": "SessionA",
+      "projectName": "Data Structures and Algorithms_5dbb3c7b"
+    },
+    {
+      "type": "java",
+      "name": "Launch BTree",
+      "request": "launch",
+      "mainClass": "Finals.BTree",
+      "projectName": "Data Structures and Algorithms_5dbb3c7b"
+    },
+    {
+      "type": "java",
+      "name": "Launch Problems",
+      "request": "launch",
+      "mainClass": "Finals.Problems",
+      "projectName": "Data Structures and Algorithms_5dbb3c7b"
+    },
+    {
+      "type": "java",
+      "name": "Launch DoublyLinkedList",
+      "request": "launch",
+      "mainClass": "Finals.DoublyLinkedList",
+      "projectName": "Data Structures and Algorithms_5dbb3c7b"
+    },
+    {
+      "type": "java",
+      "name": "Launch LinkList",
+      "request": "launch",
+      "mainClass": "Finals.LinkList",
+      "projectName": "Data Structures and Algorithms_5dbb3c7b"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/TREND/Desktop/Data Structures and Algorithms",
+      "program": "c:/Users/TREND/Desktop/Data Structures and Algorithms/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

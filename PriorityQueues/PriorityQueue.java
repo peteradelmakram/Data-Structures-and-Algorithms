@@ -1,5 +1,4 @@
 package PriorityQueues;
-
 public class PriorityQueue {
  
    private Comparable[] elements;
